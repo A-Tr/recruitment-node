@@ -1,0 +1,118 @@
+components:
+    examples: {}
+    headers: {}
+    parameters: {}
+    requestBodies: {}
+    responses: {}
+    schemas:
+        CertificateStatus:
+            type: string
+            enum:
+                - available
+                - owned
+                - transferred
+        Certificate:
+            properties:
+                id:
+                    type: number
+                    format: double
+                country:
+                    type: string
+                status:
+                    $ref: '#/components/schemas/CertificateStatus'
+                ownerId:
+                    type: number
+                    format: double
+            required:
+                - id
+                - country
+                - status
+            type: object
+            additionalProperties: false
+        LoginResponse:
+            properties:
+                email:
+                    type: string
+                token:
+                    type: string
+            required:
+                - email
+                - token
+            type: object
+            additionalProperties: false
+        LoginRequest:
+            properties:
+                email:
+                    type: string
+                password:
+                    type: string
+            required:
+                - email
+                - password
+            type: object
+            additionalProperties: false
+    securitySchemes:
+        jwt:
+            type: apiKey
+            name: x-access-token
+            in: header
+info:
+    title: recruitment-node
+    version: 1.0.0
+    description: '![Agreena](https://agreena.com/wp-content/uploads/2021/06/agreena-logo.svg)'
+    contact:
+        email: alvarotrancon@gmail.com
+    termsOfService: 'http://swagger.io/terms/'
+    license:
+        name: Apache
+        url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+openapi: 3.0.0
+paths:
+    /certificates:
+        get:
+            operationId: GetCertificates
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                items:
+                                    $ref: '#/components/schemas/Certificate'
+                                type: array
+            security:
+                -
+                    jwt: []
+            parameters:
+                -
+                    in: query
+                    name: owned
+                    required: true
+                    schema:
+                        type: string
+                        enum:
+                            - 'true'
+                            - 'false'
+    /users/login:
+        post:
+            operationId: Login
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LoginResponse'
+            tags:
+                - users
+            security: []
+            parameters: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LoginRequest'
+servers:
+    -
+        url: 'http://localhost:3000/api'
