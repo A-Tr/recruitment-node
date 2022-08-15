@@ -1,14 +1,15 @@
-import { singleton } from 'tsyringe';
-import { pool } from '../../common/Database';
+import { Pool } from 'pg';
+import { inject, injectable, singleton } from 'tsyringe';
 import { NotFoundError } from '../../common/errors/DomainError';
 import { UserDB } from './UserModel';
 
 type UserSearchKey = 'id' | 'email';
 
+@injectable()
 @singleton()
 export class UsersRepository {
   private tableName = 'users';
-  private pool = pool;
+  constructor(@inject('Pool') private pool: Pool) {}
 
   async findByEmail(email: string): Promise<UserDB> {
     return this.findByKey('email', email);

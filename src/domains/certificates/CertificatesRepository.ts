@@ -1,13 +1,14 @@
-import { singleton } from 'tsyringe';
-import { pool } from '../../common/Database';
+import { Pool } from 'pg';
+import { inject, injectable, singleton } from 'tsyringe';
 import { DatabaseError, NotFoundError } from '../../common/errors/DomainError';
 import { getErrorMessage } from '../../common/errors/ErrorMapper';
 import { CertificateDb } from './CertificateModel';
 
 @singleton()
+@injectable()
 export class CertificatesRepository {
   private tableName = 'certificates';
-  private pool = pool;
+  constructor(@inject('Pool') private pool: Pool) {}
 
   async getNonOwnedCertificates() {
     return this.getAllCertificates();
@@ -20,7 +21,7 @@ export class CertificatesRepository {
   async findById(certificateId: number) {
     const client = await this.pool.connect();
     try {
-      const res = await client.query(`SELECT * FROM ${this.tableName} WHERE id = ${certificateId}`);
+      const res = await client.query(`SELECT * FROM ${this.tableName} WHERE id = $1`, [certificateId]);
       if (!res.rows.length) {
         return Promise.reject(new NotFoundError('certificate', 'id', certificateId));
       }

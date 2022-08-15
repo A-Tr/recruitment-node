@@ -1,20 +1,22 @@
 {
-  "name": "recruitment-node",
+  "name": "certificates-service",
   "version": "1.0.0",
   "description": "![Agreena](https://agreena.com/wp-content/uploads/2021/06/agreena-logo.svg)",
   "main": "index.js",
   "scripts": {
     "predev": "npm run spec",
-    "dev": "ts-node-dev --exit-child src/index.ts",
+    "dev": "NODE_ENV=development ts-node-dev --exit-child src/index.ts",
     "prebuild": "npm run spec",
     "build": "tsc",
     "start": "node build/index.js",
+    "start:docker": "docker build -t $npm_package_name . && docker-compose up",
     "lint": "eslint --ext .ts .",
     "spec": "node scripts/GenerateSpecAndRoutes.js",
     "seeds:create": "node scripts/CreateSeeds.js",
     "seeds:insert": "ts-node scripts/SeedDatabase.ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:cover": "jest --coverage"
   },
   "engines": {
     "node": ">=18"
@@ -51,7 +53,6 @@
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
-    "body-parser": "1.20.0",
     "cors": "2.8.5",
     "dotenv": "16.0.1",
     "express": "4.18.1",

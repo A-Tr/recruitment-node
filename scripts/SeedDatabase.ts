@@ -10,18 +10,18 @@ async function seedDb() {
   const client = await pool.connect();
   try {
     // Delete exising tables
-    await client.query(`DROP TABLE certificates`);
-    await client.query(`DROP TABLE users`);
+    await client.query(`DROP TABLE IF EXISTS certificates`);
+    await client.query(`DROP TABLE IF EXISTS users`);
 
     // Create Tables
-    await client.query(`CREATE TABLE IF NOT EXISTS users 
+    await client.query(`CREATE TABLE users 
       (id serial PRIMARY KEY,
       email VARCHAR(255) UNIQUE,
       password VARCHAR(255) NOT NULL,
       created_at INT NOT NULL,
       updated_at INT NOT NULL);`);
 
-    await client.query(`CREATE TABLE IF NOT EXISTS certificates 
+    await client.query(`CREATE TABLE certificates 
       (id serial PRIMARY KEY,
       owner_id INT,
       country VARCHAR(100),

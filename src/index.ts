@@ -12,8 +12,13 @@ import { getEnv } from './common/Env';
 import { logger } from './common/Logger';
 import { errorHandler } from './common/middleware/ErrorHandler';
 import { RegisterRoutes } from './common/Routes';
+import { Pool } from 'pg';
+import { container } from 'tsyringe';
+import { pool } from './common/Database';
 
 logger.info(`Starting server...`);
+container.register<Pool>('Pool', { useValue: pool });
+
 const app = express();
 const port = getEnv('PORT', false) || 3000;
 
