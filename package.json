@@ -11,12 +11,13 @@
     "start": "node build/index.js",
     "lint": "eslint --ext .ts .",
     "spec": "node scripts/GenerateSpecAndRoutes.js",
-    "seeddb": "ts-node scripts/SeedDatabase.ts",
+    "seeds:create": "node scripts/CreateSeeds.js",
+    "seeds:insert": "ts-node scripts/SeedDatabase.ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "repository": {
     "type": "git",

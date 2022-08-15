@@ -1,0 +1,543 @@
+[
+  {
+    "country": "Canada",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Iceland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Saint Vincent And Grenadines",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Holy See (Vatican City State)",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 0
+  },
+  {
+    "country": "Kenya",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Iceland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "French Southern Territories",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Dominica",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Sri Lanka",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Malawi",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Equatorial Guinea",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Saint Kitts And Nevis",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Netherlands",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Saint Lucia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Swaziland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Jordan",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Cambodia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Macao",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Greenland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Andorra",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Spain",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Brazil",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Bolivia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 0
+  },
+  {
+    "country": "Comoros",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Guinea-Bissau",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "American Samoa",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Netherlands Antilles",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Angola",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Uganda",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Seychelles",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Guadeloupe",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Gambia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Bahrain",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Greenland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Thailand",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 3
+  },
+  {
+    "country": "Equatorial Guinea",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Anguilla",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Uganda",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "New Zealand",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Spain",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Palau",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Georgia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Kiribati",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Moldova",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Saint Martin",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Aruba",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Saint Barthelemy",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 3
+  },
+  {
+    "country": "Mauritius",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "United Kingdom",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Nicaragua",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Cuba",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Ethiopia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Macedonia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Reunion",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Congo, Democratic Republic",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Jamaica",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Canada",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Burkina Faso",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 0
+  },
+  {
+    "country": "American Samoa",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Poland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Cyprus",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 3
+  },
+  {
+    "country": "Guam",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Niue",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Liechtenstein",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Slovakia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Pakistan",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Zambia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Indonesia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 3
+  },
+  {
+    "country": "Ethiopia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Luxembourg",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Moldova",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Ethiopia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Sri Lanka",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Burkina Faso",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 3
+  },
+  {
+    "country": "United Kingdom",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Cape Verde",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Turkmenistan",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Ecuador",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Somalia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 3
+  },
+  {
+    "country": "Saint Lucia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Jordan",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Finland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Samoa",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Cape Verde",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Tanzania",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Angola",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Samoa",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Dominican Republic",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Afghanistan",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Rwanda",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 2
+  },
+  {
+    "country": "Gambia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Spain",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Cyprus",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Wallis And Futuna",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Swaziland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Bosnia And Herzegovina",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 4
+  },
+  {
+    "country": "Mayotte",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Egypt",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  },
+  {
+    "country": "Greenland",
+    "created_at": 1660572468,
+    "updated_at": 1660572468,
+    "ownerId": 1
+  },
+  {
+    "country": "Slovenia",
+    "created_at": 1660572468,
+    "updated_at": 1660572468
+  }
+]

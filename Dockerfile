@@ -1,5 +1,5 @@
 # Build Stage
-FROM node:16-alpine AS builder
+FROM node:18-alpine AS builder
 
 WORKDIR /usr/app
 
@@ -12,7 +12,7 @@ RUN npm install typescript@$(node -pe "require('./package').devDependencies.type
 RUN npm run build
 
 # Run Server Stage
-FROM node:16-alpine
+FROM node:18-alpine
 WORKDIR /usr/app
 
 COPY --from=builder /usr/app/build ./build
