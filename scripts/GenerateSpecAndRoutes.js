@@ -1,6 +1,6 @@
-import { generateRoutes, generateSpec, ExtendedRoutesConfig, ExtendedSpecConfig } from '@tsoa/cli';
-import * as dotenv from 'dotenv';
-import * as packageJson from '../package.json';
+const { generateRoutes, generateSpec } = require('@tsoa/cli');
+const dotenv = require('dotenv');
+const packageJson = require('../package.json');
 
 dotenv.config();
 
@@ -8,7 +8,7 @@ async function generateSpecAndRoutes() {
   const port = process.env.PORT || 3000;
   const basePath = 'api';
 
-  const specOptions: ExtendedSpecConfig = {
+  const specOptions = {
     entryFile: 'src/index.ts',
     controllerPathGlobs: ['src/domains/**/*Controller.ts'],
     outputDirectory: 'api/',
@@ -42,19 +42,20 @@ async function generateSpecAndRoutes() {
         {
           url: `http://localhost:${port}/${basePath}`,
         },
-      ]
+      ],
     },
   };
   await generateSpec(specOptions);
 
-  const routeOptions: ExtendedRoutesConfig = {
+  const routeOptions = {
     entryFile: 'src/index.ts',
     controllerPathGlobs: ['src/domains/**/*Controller.ts'],
     noImplicitAdditionalProperties: 'throw-on-extras',
     routesDir: 'src/common',
+    iocModule: 'src/common/IoCContainer.ts',
     authenticationModule: 'src/common/middleware/Authentication.ts',
     basePath,
-    routesFileName: 'Routes.ts'
+    routesFileName: 'Routes.ts',
   };
   await generateRoutes(routeOptions);
 }

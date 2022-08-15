@@ -1,4 +1,4 @@
-import { CertificateStatus } from "../../common/constants/CertificateStatus";
+import { CertificateStatus } from '../../common/constants/CertificateStatus';
 
 export interface Certificate {
   id: number;

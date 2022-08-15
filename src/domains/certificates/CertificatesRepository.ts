@@ -1,15 +1,13 @@
-import { Pool } from 'pg';
+import { singleton } from 'tsyringe';
 import { pool } from '../../common/Database';
 import { DatabaseError, NotFoundError } from '../../common/errors/DomainError';
 import { getErrorMessage } from '../../common/errors/ErrorMapper';
 import { CertificateDb } from './CertificateModel';
 
+@singleton()
 export class CertificatesRepository {
   private tableName = 'certificates';
-  private pool: Pool;
-  constructor() {
-    this.pool = pool;
-  }
+  private pool = pool;
 
   async getNonOwnedCertificates() {
     return this.getAllCertificates();

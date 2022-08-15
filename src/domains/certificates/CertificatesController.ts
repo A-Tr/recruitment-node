@@ -1,12 +1,16 @@
 import { Body, Controller, Get, Patch, Path, Query, Request, Route, Security, Tags } from 'tsoa';
+import { inject, injectable } from 'tsyringe';
 import { AuthorizedRequest } from '../users/SessionModel';
 import { Certificate } from './CertificateModel';
 import { CertificatesService } from './CertificatesService';
 
+@injectable()
 @Route('certificates')
 @Tags('Carbon Certificates')
 export class CertificatesController extends Controller {
-  private service = new CertificatesService();
+  constructor(@inject(CertificatesService) private service: CertificatesService) {
+    super();
+  }
 
   @Get('')
   @Security('jwt')

@@ -1,12 +1,17 @@
+import { inject, injectable, singleton } from 'tsyringe';
 import { ForbiddenError } from '../../common/errors/DomainError';
 import { UsersRepository } from '../users/UsersRepository';
 import { dbToModel } from './CertificateMapper';
 import { Certificate } from './CertificateModel';
 import { CertificatesRepository } from './CertificatesRepository';
 
+@injectable()
+@singleton()
 export class CertificatesService {
-  private repository = new CertificatesRepository();
-  private usersRepository = new UsersRepository();
+  constructor(
+    @inject(CertificatesRepository) private repository: CertificatesRepository,
+    @inject(UsersRepository) private usersRepository: UsersRepository,
+  ) {}
 
   async getOwnCertificates(userId: number): Promise<Certificate[]> {
     const certificateDbArray = await this.repository.getOwnCertificates(userId);
@@ -25,8 +30,8 @@ export class CertificatesService {
     }
 
     await this.usersRepository.findById(newOwnerId);
-    
+
     certificateDb = await this.repository.transferCertificate(certificateId, newOwnerId);
-    return dbToModel(certificateDb); 
+    return dbToModel(certificateDb);
   }
 }

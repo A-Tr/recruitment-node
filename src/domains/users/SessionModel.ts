@@ -16,5 +16,5 @@ export interface UserSession {
 }
 
 export interface AuthorizedRequest extends Request {
-	user: UserSession;
+  user: UserSession;
 }

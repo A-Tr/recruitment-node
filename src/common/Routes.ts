@@ -9,6 +9,8 @@ import { UsersController } from './../domains/users/UsersController';
 import { expressAuthentication } from './middleware/Authentication';
 // @ts-ignore - no great way to install types from subpackage
 const promiseAny = require('promise.any');
+import { iocContainer } from './IoCContainer';
+import { IocContainer, IocContainerFactory } from '@tsoa/runtime';
 import type { RequestHandler } from 'express';
 import * as express from 'express';
 
@@ -64,7 +66,7 @@ export function RegisterRoutes(app: express.Router) {
             ...(fetchMiddlewares<RequestHandler>(CertificatesController)),
             ...(fetchMiddlewares<RequestHandler>(CertificatesController.prototype.getCertificates)),
 
-            function CertificatesController_getCertificates(request: any, response: any, next: any) {
+            async function CertificatesController_getCertificates(request: any, response: any, next: any) {
             const args = {
                     owned: {"in":"query","name":"owned","required":true,"dataType":"union","subSchemas":[{"dataType":"enum","enums":["true"]},{"dataType":"enum","enums":["false"]}]},
                     req: {"in":"request","name":"req","required":true,"dataType":"object"},
@@ -76,7 +78,12 @@ export function RegisterRoutes(app: express.Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CertificatesController();
+                const container: IocContainer = typeof iocContainer === 'function' ? (iocContainer as IocContainerFactory)(request) : iocContainer;
+
+                const controller: any = await container.get<CertificatesController>(CertificatesController);
+                if (typeof controller['setStatus'] === 'function') {
+                controller.setStatus(undefined);
+                }
 
 
               const promise = controller.getCertificates.apply(controller, validatedArgs as any);
@@ -91,7 +98,7 @@ export function RegisterRoutes(app: express.Router) {
             ...(fetchMiddlewares<RequestHandler>(CertificatesController)),
             ...(fetchMiddlewares<RequestHandler>(CertificatesController.prototype.transferCertificate)),
 
-            function CertificatesController_transferCertificate(request: any, response: any, next: any) {
+            async function CertificatesController_transferCertificate(request: any, response: any, next: any) {
             const args = {
                     certificateId: {"in":"path","name":"certificateId","required":true,"dataType":"double"},
                     req: {"in":"request","name":"req","required":true,"dataType":"object"},
@@ -104,7 +111,12 @@ export function RegisterRoutes(app: express.Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new CertificatesController();
+                const container: IocContainer = typeof iocContainer === 'function' ? (iocContainer as IocContainerFactory)(request) : iocContainer;
+
+                const controller: any = await container.get<CertificatesController>(CertificatesController);
+                if (typeof controller['setStatus'] === 'function') {
+                controller.setStatus(undefined);
+                }
 
 
               const promise = controller.transferCertificate.apply(controller, validatedArgs as any);
@@ -118,7 +130,7 @@ export function RegisterRoutes(app: express.Router) {
             ...(fetchMiddlewares<RequestHandler>(UsersController)),
             ...(fetchMiddlewares<RequestHandler>(UsersController.prototype.login)),
 
-            function UsersController_login(request: any, response: any, next: any) {
+            async function UsersController_login(request: any, response: any, next: any) {
             const args = {
                     payload: {"in":"body","name":"payload","required":true,"ref":"LoginRequest"},
             };
@@ -129,7 +141,12 @@ export function RegisterRoutes(app: express.Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new UsersController();
+                const container: IocContainer = typeof iocContainer === 'function' ? (iocContainer as IocContainerFactory)(request) : iocContainer;
+
+                const controller: any = await container.get<UsersController>(UsersController);
+                if (typeof controller['setStatus'] === 'function') {
+                controller.setStatus(undefined);
+                }
 
 
               const promise = controller.login.apply(controller, validatedArgs as any);

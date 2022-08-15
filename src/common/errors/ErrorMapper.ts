@@ -4,7 +4,7 @@ export function getErrorMessage(error: any) {
   }
 
   if (error instanceof Error) {
-    return `${error.name}: ${error.message}`
+    return `${error.name}: ${error.message}`;
   }
 
   if (typeof error === 'object') {
