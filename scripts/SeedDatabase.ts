@@ -20,7 +20,7 @@ async function seedDb() {
       (id serial PRIMARY KEY,
       owner_id INT,
       country VARCHAR(2),
-      status VARCHAR(10) NOT NULL,
+      status VARCHAR(30) NOT NULL,
       created_at INT NOT NULL,
       updated_at INT NOT NULL,
       FOREIGN KEY (owner_id) REFERENCES users (id));`);

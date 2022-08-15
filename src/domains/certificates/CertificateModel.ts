@@ -1,4 +1,4 @@
-type CertificateStatus = 'available' | 'owned' | 'transferred';
+import { CertificateStatus } from "../../common/constants/CertificateStatus";
 
 export interface Certificate {
   id: number;

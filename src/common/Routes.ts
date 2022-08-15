@@ -6,7 +6,7 @@ import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, H
 import { CertificatesController } from './../domains/certificates/CertificatesController';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { UsersController } from './../domains/users/UsersController';
-import { expressAuthentication } from './../middleware/Authentication';
+import { expressAuthentication } from './middleware/Authentication';
 // @ts-ignore - no great way to install types from subpackage
 const promiseAny = require('promise.any');
 import type { RequestHandler } from 'express';
@@ -17,7 +17,7 @@ import * as express from 'express';
 const models: TsoaRoute.Models = {
     "CertificateStatus": {
         "dataType": "refAlias",
-        "type": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["available"]},{"dataType":"enum","enums":["owned"]},{"dataType":"enum","enums":["transferred"]}],"validators":{}},
+        "type": {"dataType":"string","validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "Certificate": {
@@ -86,13 +86,41 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.patch('/api/certificates/:certificateId/owner',
+            authenticateMiddleware([{"jwt":[]}]),
+            ...(fetchMiddlewares<RequestHandler>(CertificatesController)),
+            ...(fetchMiddlewares<RequestHandler>(CertificatesController.prototype.transferCertificate)),
+
+            function CertificatesController_transferCertificate(request: any, response: any, next: any) {
+            const args = {
+                    certificateId: {"in":"path","name":"certificateId","required":true,"dataType":"double"},
+                    req: {"in":"request","name":"req","required":true,"dataType":"object"},
+                    payload: {"in":"body","name":"payload","required":true,"dataType":"nestedObjectLiteral","nestedProperties":{"newOwnerId":{"dataType":"double","required":true}}},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new CertificatesController();
+
+
+              const promise = controller.transferCertificate.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.post('/api/users/login',
             ...(fetchMiddlewares<RequestHandler>(UsersController)),
             ...(fetchMiddlewares<RequestHandler>(UsersController.prototype.login)),
 
             function UsersController_login(request: any, response: any, next: any) {
             const args = {
-                    requestBody: {"in":"body","name":"requestBody","required":true,"ref":"LoginRequest"},
+                    payload: {"in":"body","name":"payload","required":true,"ref":"LoginRequest"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa

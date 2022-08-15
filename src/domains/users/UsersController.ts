@@ -1,14 +1,14 @@
-import { Body, Controller, Get, Post, Route, Tags } from 'tsoa';
-import { LoginRequest, LoginResponse } from './UserModel';
+import { Body, Controller, Post, Route, Tags } from 'tsoa';
+import { LoginRequest, LoginResponse } from './SessionModel';
 import { UsersService } from './UsersService';
 
 @Route('users')
-@Tags('users')
+@Tags('Users')
 export class UsersController extends Controller {
   private service = new UsersService();
 
   @Post('login')
-  async login(@Body() requestBody: LoginRequest): Promise<LoginResponse> {
-    return this.service.login(requestBody.email, requestBody.password)
+  async login(@Body() payload: LoginRequest): Promise<LoginResponse> {
+    return this.service.login(payload.email, payload.password)
   }
 }

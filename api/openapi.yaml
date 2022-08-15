@@ -7,10 +7,6 @@ components:
     schemas:
         CertificateStatus:
             type: string
-            enum:
-                - available
-                - owned
-                - transferred
         Certificate:
             properties:
                 id:
@@ -80,6 +76,8 @@ paths:
                                 items:
                                     $ref: '#/components/schemas/Certificate'
                                 type: array
+            tags:
+                - 'Carbon Certificates'
             security:
                 -
                     jwt: []
@@ -93,6 +91,41 @@ paths:
                         enum:
                             - 'true'
                             - 'false'
+    '/certificates/{certificateId}/owner':
+        patch:
+            operationId: TransferCertificate
+            responses:
+                '200':
+                    description: Ok
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Certificate'
+            tags:
+                - 'Carbon Certificates'
+            security:
+                -
+                    jwt: []
+            parameters:
+                -
+                    in: path
+                    name: certificateId
+                    required: true
+                    schema:
+                        format: double
+                        type: number
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                newOwnerId:
+                                    type: number
+                                    format: double
+                            required:
+                                - newOwnerId
+                            type: object
     /users/login:
         post:
             operationId: Login
@@ -104,7 +137,7 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/LoginResponse'
             tags:
-                - users
+                - Users
             security: []
             parameters: []
             requestBody:

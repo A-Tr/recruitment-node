@@ -52,7 +52,7 @@ async function generateSpecAndRoutes() {
     controllerPathGlobs: ['src/domains/**/*Controller.ts'],
     noImplicitAdditionalProperties: 'throw-on-extras',
     routesDir: 'src/common',
-    authenticationModule: 'src/middleware/Authentication.ts',
+    authenticationModule: 'src/common/middleware/Authentication.ts',
     basePath,
     routesFileName: 'Routes.ts'
   };

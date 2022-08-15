@@ -1,4 +1,4 @@
-import { LoginResponse } from './UserModel';
+import { LoginResponse } from './SessionModel';
 import { UsersRepository } from './UsersRepository';
 import jwt from 'jsonwebtoken';
 import { getEnv } from '../../common/Env';

@@ -11,7 +11,7 @@ import * as http from 'http';
 import { RegisterRoutes } from './common/Routes';
 import { logger } from './common/Logger';
 import { getEnv } from './common/Env';
-import { errorHandler } from './middleware/ErrorHandler';
+import { errorHandler } from './common/middleware/ErrorHandler';
 
 logger.info(`Starting server...`);
 const app = express();
