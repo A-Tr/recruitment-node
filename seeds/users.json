@@ -1,1 +1,62 @@
-[{"email":"agreena@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"alvaro@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"frank@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"michael@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"joan@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"karla@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"bethany@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"andrea@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"john@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468},{"email":"gustaff@test.com","password":"1234","created_at":1660572468,"updated_at":1660572468}]
+[
+  {
+    "email": "agreena@test.com",
+    "password": "$2b$10$Xyrl2E8z4Vawak/JBkUVleAzfD7fUA0G6hUtrP/fgdYsjRB83ns9G",
+    "created_at": 1660990253,
+    "updated_at": 1660990253
+  },
+  {
+    "email": "alvaro@test.com",
+    "password": "$2b$10$ThmIs2lx5CL2d7GmB8HxSuCtoskp0ZxAeR7OJ.8idGqBaJmwIomIy",
+    "created_at": 1660990253,
+    "updated_at": 1660990253
+  },
+  {
+    "email": "frank@test.com",
+    "password": "$2b$10$7B6vlGfPodBi2wfFMitwAOLXY0fk.6YgzaUHWXmxw9zmk.c8QcvTK",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "michael@test.com",
+    "password": "$2b$10$iCTKmgd3.xaw27IEyheWne9It1rkdh.2SS6k7UVzHb./aAd4nWCcm",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "joan@test.com",
+    "password": "$2b$10$a7GzxgPr5YAvCFzZXln6/.wxUXQ7dk4ny/Ip.t1YgPqDF16ll1L5y",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "karla@test.com",
+    "password": "$2b$10$YVIeCpL53/m6X6xiGzSUGevQf1x9koGMsbWYGWzneq2NJjK9F8K6G",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "bethany@test.com",
+    "password": "$2b$10$1hTDdkGhEspoU.GPVzE/7ehtKd9HwprFGe/ENd0wOwp242lvfGQOm",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "andrea@test.com",
+    "password": "$2b$10$K470SMwn7aca4CYyGgb7TejCdkXkVXhDDo4Io2vGoTbIxWgp9Xphe",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "john@test.com",
+    "password": "$2b$10$ZZHTRmtTnKdFwcBNNeG./eIE0m0zJeQa0z/vu6ygvWB9.fPKObPbq",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  },
+  {
+    "email": "gustaff@test.com",
+    "password": "$2b$10$i3mZWOZLIBVumrfQTTWeP.JhE7ZPPVlQWy2yUY1ZxqrJI4xHsou9q",
+    "created_at": 1660990254,
+    "updated_at": 1660990254
+  }
+]

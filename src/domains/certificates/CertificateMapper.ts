@@ -1,6 +1,6 @@
-import { Certificate, CertificateDb } from './CertificateModel';
+import { Certificate, CertificateDB } from './CertificateModel';
 
-export function dbToModel(certificateDb: CertificateDb): Certificate {
+export function dbToModel(certificateDb: CertificateDB): Certificate {
   return {
     id: certificateDb.id,
     country: certificateDb.country,

@@ -35,10 +35,7 @@ Once your server is up and running, you can navigate to `http://localhost:3000/a
 This service is organized following a Domain Driven Design philosophy. There are two main domains: `Users` and `Certificates`, and each corresponding domain has its files contained inside the `src/domains` folder. In these folders, we split the logic between the Controller (for managing routes), Service (where our business logic is stored) and Repository (data access layer); and also the corresponding models.
 
 ### Testing
-It is a work in progress, code is not fully tested. Library used for testing is [Jest](https://jestjs.io/), you can run the unit tests with the command `npm run test`. If you want to check the code coverage, a `npm run test:cover` script is also included.
-
-### Further improvements
-Right now, user **passwords are stored raw in the database**, which is one of the worst things you can do. It should be replaced with password hashing; package `bcrypt` is included for this feature.
+Library used for testing is [Jest](https://jestjs.io/), you can run the unit tests with the command `npm run test`. If you want to check the code coverage, a `npm run test:cover` script is also included.
 
 
 --------------------------------------------------------------------------------------------

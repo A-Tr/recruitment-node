@@ -17,6 +17,7 @@ const mockPool = {
     return Promise.resolve(mockClient);
   },
 };
+
 describe('CertificatesRepository tests', () => {
   let repo: CertificatesRepository;
 
@@ -25,11 +26,11 @@ describe('CertificatesRepository tests', () => {
     repo = container.register<Pool>('Pool', { useValue: mockPool as unknown as Pool }).resolve(CertificatesRepository);
   });
 
-  describe('getNonOwnedCertificates tests', () => {
+  describe('getAvailableCertificates tests', () => {
     test('should make request to Database with proper query and release client', async () => {
       mockQuery.mockResolvedValue({ rows: [] });
 
-      await repo.getNonOwnedCertificates();
+      await repo.getAvailableCertificates();
       expect(mockQuery).toHaveBeenCalledWith(`SELECT * FROM certificates WHERE owner_id IS NULL`, []);
       expect(mockRelease).toHaveBeenCalledTimes(1);
     });
@@ -39,7 +40,7 @@ describe('CertificatesRepository tests', () => {
 
       expect.assertions(4);
       try {
-        await repo.getNonOwnedCertificates();
+        await repo.getAvailableCertificates();
       } catch (error) {
         expect(mockQuery).toHaveBeenCalledWith(`SELECT * FROM certificates WHERE owner_id IS NULL`, []);
         expect(mockRelease).toHaveBeenCalledTimes(1);
@@ -116,6 +117,41 @@ describe('CertificatesRepository tests', () => {
         await repo.findById(1);
       } catch (error) {
         expect(mockQuery).toHaveBeenCalledWith(`SELECT * FROM certificates WHERE id = $1`, [1]);
+        expect(mockRelease).toHaveBeenCalledTimes(1);
+        expect(error).toBeInstanceOf(DatabaseError);
+        expect((error as DatabaseError).message).toEqual('Database error: Error: Failed to connect to database');
+      }
+    });
+  });
+
+  describe('transferCertificate tests', () => {
+    test('should make request to Database with proper query, make second query to retrieve the updated doc and release client', async () => {
+      const resultDb = {
+        id: 1,
+        country: 'Canada',
+        owner_id: 2,
+        created_at: 1660572468,
+        updated_at: 1660572468,
+      }
+      mockQuery
+        .mockResolvedValueOnce('SUCCESS')
+        .mockResolvedValueOnce({
+          rows: [resultDb],
+        });
+      await repo.transferCertificate(1, 2);
+      expect(mockQuery).toHaveBeenNthCalledWith(1, `UPDATE certificates SET owner_id = $1, status = 'transferred' WHERE id = $2`, [2, 1]);
+      expect(mockQuery).toHaveBeenNthCalledWith(2, `SELECT * FROM certificates WHERE id = $1`, [1]);
+      expect(mockRelease).toHaveBeenCalledTimes(2);
+    });
+
+    test('should throw error if something happens with database AND release the client', async () => {
+      mockQuery.mockRejectedValue(new Error(`Failed to connect to database`));
+
+      expect.assertions(4);
+      try {
+        await repo.transferCertificate(1, 2);
+      } catch (error) {
+        expect(mockQuery).toHaveBeenCalledWith(`UPDATE certificates SET owner_id = $1, status = 'transferred' WHERE id = $2`, [2, 1]);
         expect(mockRelease).toHaveBeenCalledTimes(1);
         expect(error).toBeInstanceOf(DatabaseError);
         expect((error as DatabaseError).message).toEqual('Database error: Error: Failed to connect to database');

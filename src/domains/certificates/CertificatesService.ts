@@ -18,15 +18,15 @@ export class CertificatesService {
     return certificateDbArray.map(dbToModel);
   }
 
-  async getNonOwnedCertificates(): Promise<Certificate[]> {
-    const certificateDbArray = await this.repository.getNonOwnedCertificates();
+  async getAvailableCertificates(): Promise<Certificate[]> {
+    const certificateDbArray = await this.repository.getAvailableCertificates();
     return certificateDbArray.map(dbToModel);
   }
 
   async transferCertificate(certificateId: number, previousOwnerId: number, newOwnerId: number): Promise<Certificate> {
     let certificateDb = await this.repository.findById(certificateId);
     if (certificateDb.owner_id !== previousOwnerId) {
-      throw new ForbiddenError(previousOwnerId);
+      throw ForbiddenError.fromUserId(previousOwnerId);
     }
 
     await this.usersRepository.findById(newOwnerId);

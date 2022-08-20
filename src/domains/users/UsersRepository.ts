@@ -1,6 +1,7 @@
 import { Pool } from 'pg';
 import { inject, injectable, singleton } from 'tsyringe';
-import { NotFoundError } from '../../common/errors/DomainError';
+import { DatabaseError, NotFoundError } from '../../common/errors/DomainError';
+import { getErrorMessage } from '../../common/errors/ErrorMapper';
 import { UserDB } from './UserModel';
 
 type UserSearchKey = 'id' | 'email';
@@ -19,16 +20,16 @@ export class UsersRepository {
     return this.findByKey('id', userId);
   }
 
-  async findByKey(searchKey: UserSearchKey, searchValue: string | number): Promise<UserDB> {
+  private async findByKey(searchKey: UserSearchKey, searchValue: string | number): Promise<UserDB> {
     const client = await this.pool.connect();
     try {
       const res = await client.query(`SELECT * FROM ${this.tableName} WHERE ${searchKey} = $1`, [searchValue]);
       if (!res.rows.length) {
-        return Promise.reject(new NotFoundError('user', searchKey, searchValue));
+        return Promise.reject(NotFoundError.generateFromParams('user', searchKey, searchValue));
       }
       return res.rows[0] as UserDB;
     } catch (error) {
-      throw new Error(`Error retrieving user from database. Error: ${error}`);
+      throw new DatabaseError(getErrorMessage(error));
     } finally {
       await client.release();
     }

@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const bcrypt = require('bcrypt');
 
 const users = ['agreena', 'alvaro', 'frank', 'michael', 'joan', 'karla', 'bethany', 'andrea', 'john', 'gustaff'];
 const countries = [
@@ -252,7 +253,7 @@ function generateUsers() {
   const usersDbPayload = users.map((u) => {
     return {
       email: `${u}@test.com`,
-      password: '1234',
+      password: bcrypt.hashSync('1234', 10),
       created_at: Math.floor(Date.now() / 1000),
       updated_at: Math.floor(Date.now() / 1000),
     };

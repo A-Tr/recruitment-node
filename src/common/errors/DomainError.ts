@@ -10,8 +10,12 @@ export abstract class DomainError extends Error {
 }
 
 export class NotFoundError extends DomainError {
-  constructor(resource: string, searchKey: string, searchValue: string | number) {
-    super(`${resource} with ${searchKey} ${searchValue} not found`, NOT_FOUND);
+  constructor(message: string) {
+    super(message, NOT_FOUND);
+  }
+
+  static generateFromParams(resource: string, searchKey: string, searchValue: string | number) {
+    return new this(`${resource} with ${searchKey} ${searchValue} not found`);
   }
 }
 
@@ -34,8 +38,12 @@ export class DatabaseError extends DomainError {
 }
 
 export class ForbiddenError extends DomainError {
-  constructor(userId: number) {
-    super(`User ${userId} cannot perform this operation`, FORBIDDEN);
+  constructor(message: string) {
+    super(message, FORBIDDEN);
+  }
+
+  static fromUserId(userId: number) {
+    return new this(`User ${userId} cannot perform this operation`);
   }
 }
 

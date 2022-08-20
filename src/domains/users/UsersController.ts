@@ -10,7 +10,10 @@ export class UsersController extends Controller {
   constructor(@inject(UsersService) private service: UsersService) {
     super();
   }
-
+  
+  /**
+   * Retrieves a user token by email and password
+   */
   @Post('login')
   async login(@Body() payload: LoginRequest): Promise<LoginResponse> {
     return this.service.login(payload.email, payload.password);

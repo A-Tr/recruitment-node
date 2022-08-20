@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as jwt from 'jsonwebtoken';
 import { UserSession } from '../../domains/users/SessionModel';
 import { getEnv } from '../Env';
-import { UnauthorizedError } from '../errors/DomainError';
+import { ForbiddenError, UnauthorizedError } from '../errors/DomainError';
 import { getErrorMessage } from '../errors/ErrorMapper';
 
 export async function expressAuthentication(
@@ -23,6 +23,6 @@ export async function expressAuthentication(
     const decodedToken = jwt.verify(token, getEnv('JWT_SECRET')) as jwt.JwtPayload;
     return Promise.resolve({ userId: decodedToken.userId, email: decodedToken.email });
   } catch (err) {
-    throw new UnauthorizedError(getErrorMessage(err));
+    throw new ForbiddenError(getErrorMessage(err));
   }
 }

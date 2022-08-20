@@ -7,7 +7,7 @@ export interface Certificate {
   ownerId?: number;
 }
 
-export interface CertificateDb {
+export interface CertificateDB {
   id: number;
   country: string;
   status: CertificateStatus;

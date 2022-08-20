@@ -2,7 +2,7 @@ import { Pool } from 'pg';
 import { inject, injectable, singleton } from 'tsyringe';
 import { DatabaseError, NotFoundError } from '../../common/errors/DomainError';
 import { getErrorMessage } from '../../common/errors/ErrorMapper';
-import { CertificateDb } from './CertificateModel';
+import { CertificateDB } from './CertificateModel';
 
 @singleton()
 @injectable()
@@ -10,7 +10,7 @@ export class CertificatesRepository {
   private tableName = 'certificates';
   constructor(@inject('Pool') private pool: Pool) {}
 
-  async getNonOwnedCertificates() {
+  async getAvailableCertificates() {
     return this.getAllCertificates();
   }
 
@@ -23,9 +23,9 @@ export class CertificatesRepository {
     try {
       const res = await client.query(`SELECT * FROM ${this.tableName} WHERE id = $1`, [certificateId]);
       if (!res.rows.length) {
-        return Promise.reject(new NotFoundError('certificate', 'id', certificateId));
+        return Promise.reject(NotFoundError.generateFromParams('certificate', 'id', certificateId));
       }
-      return res.rows[0] as CertificateDb;
+      return res.rows[0] as CertificateDB;
     } catch (error) {
       throw new DatabaseError(getErrorMessage(error));
     } finally {
@@ -37,8 +37,7 @@ export class CertificatesRepository {
     const client = await this.pool.connect();
     try {
       await client.query(
-        `UPDATE ${this.tableName} SET owner_id = $1, status = 'transferred'
-        WHERE id = $2`,
+        `UPDATE ${this.tableName} SET owner_id = $1, status = 'transferred' WHERE id = $2`,
         [newUserId, certificateId],
       );
       return this.findById(certificateId);
@@ -56,7 +55,7 @@ export class CertificatesRepository {
         ? { query: `SELECT * FROM ${this.tableName} WHERE owner_id = $1`, args: [userId] }
         : { query: `SELECT * FROM ${this.tableName} WHERE owner_id IS NULL`, args: [] };
       const res = await client.query(queryArgs.query, queryArgs.args);
-      return res.rows as CertificateDb[];
+      return res.rows as CertificateDB[];
     } catch (error) {
       throw new DatabaseError(getErrorMessage(error));
     } finally {
